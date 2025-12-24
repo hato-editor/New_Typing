@@ -276,6 +276,7 @@ let time = 0;
 let type = 0;
 let quiz = 0;
 let dubug = 0;
+let zuminumber = [];
 let zumi = 0;
 function playSound() {
   type_audio.currentTime = 0;
@@ -344,7 +345,8 @@ document.addEventListener("keydown", function (e) {
                     }
                     else {
                         quiz++;
-                        ran = Math.floor(Math.random() * sentences.length);
+                        zuminumber.push(ran);
+                        while(zuminumber.includes(ran)) ran = Math.floor(Math.random() * sentences.length);
                         kanaChars = (_a = sentencesKana[ran].match(kanaRegex)) !== null && _a !== void 0 ? _a : [];
                         kanaChar = kanaChars[0];
                         displaying_sentence = sentences[ran];
