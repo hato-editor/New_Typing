@@ -1,6 +1,3 @@
-# Untitled
-
-A Pen created on CodePen.
-
-Original URL: [https://codepen.io/zbojzeql-the-sans/pen/KwMKKEq](https://codepen.io/zbojzeql-the-sans/pen/KwMKKEq).
-
+タイピングソフトをもう一回作りました。
+前のものよりも利便性も上がったので、ぜひ使ってみてください。
+めっちゃ苦労しました!!!
