@@ -112,9 +112,9 @@ const alphabets = {
     ぎゃ: ["gya"],
     ぎゅ: ["gyu"],
     ぎょ: ["gyo"],
-    じゃ: ["ja", "zya", "jya"],
-    じゅ: ["ju", "zyu", "jyu"],
-    じょ: ["jo", "zyo", "jyo"],
+    じゃ: ["ja", "zya"],
+    じゅ: ["ju", "zyu"],
+    じょ: ["jo", "zyo"],
     びゃ: ["bya"],
     びゅ: ["byu"],
     びょ: ["byo"],
@@ -315,7 +315,7 @@ document.addEventListener("keydown", function (e) {
                 alphabetDisplay.textContent = alphabetDisplay.textContent.slice(Math.abs(alphabets[kanaChar][0].length - alphabets[kanaChar][1].length) + 1, alphabetDisplay.textContent.length);
                 zumi++;
                 } else {
-                    alphabetDisplay.textContent = alphabetDisplay.textContent.slice(1, alphabetDisplay.textContent.length);
+                    alphabetDisplay.textContent = alphabetDisplay.textContent.slice(b.length, alphabetDisplay.textContent.length);
                     zumi++;
                 }
             } else{
@@ -362,17 +362,20 @@ document.addEventListener("keydown", function (e) {
                 }
             }
         }
-        else if (kanaChar === "ん" && kanaChars.length > 2) {
-            if (b === "n") {
-                roma_.textContent += e.key;
-                alphabetDisplay.textContent = alphabetDisplay.textContent.slice(1, alphabetDisplay.textContent.length);
-                type++;
-                playSound();
-                kanaChars.shift();
-                kanaChar = kanaChars[0];
-                b = e.key;
-            }
-        }
+        else if (
+  kanaChar === "ん" &&
+  b === "n" &&
+  kanaChars.length >= 2 &&
+  !"aiueoyn".includes(kanaChars[1][0])
+) {
+    roma_.textContent += e.key;
+    alphabetDisplay.textContent = alphabetDisplay.textContent.slice(1);
+    type++;
+    playSound();
+    kanaChars.shift();
+    kanaChar = kanaChars[0];
+    b = e.key;
+}
         else {
             const container = document.querySelector(".container");
             console.log("incollect...");
