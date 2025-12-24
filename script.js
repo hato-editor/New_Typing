@@ -310,17 +310,6 @@ document.addEventListener("keydown", function (e) {
         if (romaList.some((r) => r.startsWith(b + e.key))) {
             console.log("collect");
             b += e.key;
-            if(alphabets[kanaChar].length > 1){
-                if(zumi == 1 && e.key !== alphabetDisplay.textContent[0]){
-                alphabetDisplay.textContent = alphabetDisplay.textContent.slice(Math.abs(alphabets[kanaChar][0].length - alphabets[kanaChar][1].length) + 1, alphabetDisplay.textContent.length);
-                zumi++;
-                } else {
-                    alphabetDisplay.textContent = alphabetDisplay.textContent.slice(b.length, alphabetDisplay.textContent.length);
-                    zumi++;
-                }
-            } else{
-                alphabetDisplay.textContent = alphabetDisplay.textContent.slice(1, alphabetDisplay.textContent.length);
-            }
             roma_.textContent += e.key;
             type++;
             playSound();
